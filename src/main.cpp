@@ -20,13 +20,13 @@ int main() {
 			case 1:
                 		getline(params, j);
 				break;
-			case 3:
+			case 4:
                 		getline(params, k);
 				break;
-			case 5:
+			case 7:
                 		getline(params, l);
 				break;
-			case 7:
+			case 10:
                 		getline(params, m);
 				break;
 		}
