@@ -6,22 +6,31 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::getline;
+using std::vector;
 
 struct neuron { };
 
 struct layer {
-	layer() {
-		neuronCount = NULL;
-		neurons = NULL;
-	}
-	layer(long int x) {
-		neuronCount = x;
-	}
-	layer(vector<neuron> y) {
+    layer() {
+        neuronCount = 100;
+        initRandomNeurons(100);
+    }
+    layer(long int x) {
+        neuronCount = x;
+        initRandomNeurons(100);
+    }
+    layer(vector<neuron> y) {
+        neuronCount = y.size();
         neurons = y;
     }
-	long neuronCount;
+    long neuronCount;
     vector<neuron> neurons;
+    
+private:
+    void initRandomNeurons(count)
+    {
+        
+    }
     
 };
 
@@ -58,7 +67,7 @@ int main() {
         
 	}
     
-    cout << aaaaaaaaaaa.newrons << endl;
+    cout << aaaaaaaaaaa.neurons.size() << endl;
     
     return 0;
 }
