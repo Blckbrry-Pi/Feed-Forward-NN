@@ -7,17 +7,22 @@ using std::endl;
 using std::string;
 using std::getline;
 
-class layer {
-    
-    public:
-    long newrons;
-    
-    
-    layer(long x)
-    {
-        cout << "initialized with" << endl;
-        newrons=x;
+struct neuron { };
+
+struct layer {
+	layer() {
+		neuronCount = NULL;
+		neurons = NULL;
+	}
+	layer(long int x) {
+		neuronCount = x;
+	}
+	layer(vector<neuron> y) {
+        neurons = y;
     }
+	long neuronCount;
+    vector<neuron> neurons;
+    
 };
 
 int main() {
@@ -52,11 +57,8 @@ int main() {
         
         
 	}
-    /*
-    std::vector<layer> yay;
-    for (int i = 0; i < yay.size(); i++) {
-	cout << yay.at(i) << endl;
-    }
-    */
+    
+    cout << aaaaaaaaaaa.newrons << endl;
+    
     return 0;
 }

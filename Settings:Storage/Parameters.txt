@@ -1,5 +1,5 @@
 2nd hidden layer:
-4000
+3000
 
 3rd hidder layer:
 1000
