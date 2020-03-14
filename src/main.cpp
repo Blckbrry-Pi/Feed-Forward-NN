@@ -8,14 +8,16 @@ using std::string;
 using std::getline;
 
 class layer {
-	private:
-		long newrons;
-		double neurons[];
-	public:
-		layer() {
-			newrons = 100;
-			neurons = {0, 1, 2};
-		}
+    
+    public:
+    long newrons;
+    double neurons[3];
+    
+    layer()
+    {
+        newrons = 100;
+        neurons = {0, 1, 2};
+    }
 };
 
 int main() {
@@ -49,10 +51,11 @@ int main() {
         
         
 	}
-    
+    /*
     std::vector<layer> yay;
     for (int i = 0; i < yay.size(); i++) {
 	cout << yay.at(i) << endl;
     }
+    */
     return 0;
 }
