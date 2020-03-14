@@ -1,0 +1,9 @@
+2nd hidden layer:
+
+3rd hidder layer:
+
+4th hidden layer:
+
+5th hidden layer:
+
+Output layer:

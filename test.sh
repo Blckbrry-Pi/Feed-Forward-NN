@@ -5,6 +5,6 @@ out="${out:1}"
 out="$(pwd)$out"
 cd "$out"
 
-g++ -o Compiled\/Temp/main src/main.cpp
-./main
-rm main
+g++ -o CompiledTemp/main src/main.cpp
+./CompiledTemp/main
+rm CompiledTemp/main
