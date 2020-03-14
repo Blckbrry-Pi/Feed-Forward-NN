@@ -25,7 +25,8 @@ int main() {
     string m;
     string n;
     std::ifstream params("../Settings:Storage/Parameters.txt");
-    std::ofstream rawData("../Settings:Storage/Training Dump.neuraw");
+    std::ofstream rawData;
+    rawData.open("../Settings:Storage/Training Dump.neuraw");
     
     for (int i = 0; i < 15; i++) {
 		switch (i) {
