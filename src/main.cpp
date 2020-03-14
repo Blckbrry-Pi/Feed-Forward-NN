@@ -29,7 +29,12 @@ int main() {
 			case 10:
                 		getline(params, m);
 				break;
+            case 10:
+                        getline(params, m);
+                break;
 		}
+        
+        
 	}
     
 	cout << "Hello, world!" << endl;
