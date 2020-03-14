@@ -11,12 +11,12 @@ class layer {
     
     public:
     long newrons;
-    double neurons[3];
     
-    layer()
+    
+    layer(long x)
     {
-        newrons = 100;
-        neurons = {0, 1, 2};
+        cout << "initialized with" << endl;
+        newrons=x;
     }
 };
 
@@ -29,6 +29,7 @@ int main() {
     std::ifstream params("../Settings:Storage/Parameters.txt");
     std::ofstream rawData;
     rawData.open("../Settings:Storage/Training Dump.neuraw");
+    layer aaaaaaaaaaa(100);
     
     for (int i = 0; i < 15; i++) {
 		switch (i) {
