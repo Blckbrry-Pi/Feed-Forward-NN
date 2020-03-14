@@ -12,8 +12,10 @@ class layer {
 		long newrons;
 		double neurons[];
 	public:
-		newrons = 0;
-		neurons = {420.69, 340.1};
+		layer() {
+			newrons = 100;
+			neurons = {0, 1, 2};
+		}
 };
 
 int main() {
