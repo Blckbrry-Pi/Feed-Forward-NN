@@ -15,7 +15,7 @@ int main() {
     std::ifstream params("../Settings:Storage/Parameters.txt");
     std::ofstream rawData("../Settings:Storage/Training Dump.neuraw");
     
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 15; i++) {
 		switch (i) {
 			case 1:
                 		getline(params, j);

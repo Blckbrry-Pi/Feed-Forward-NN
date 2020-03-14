@@ -1,13 +1,14 @@
 2nd hidden layer:
-
+4000
 
 3rd hidder layer:
-
+1000
 
 4th hidden layer:
-
+300
 
 5th hidden layer:
-
+50
 
 Output layer:
+1
