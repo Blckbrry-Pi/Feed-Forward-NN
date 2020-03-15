@@ -17,11 +17,26 @@ struct neuron {
         throw std::domain_error("\nThere have to be neurons in the previous layer!\n");
     }
     
-    neuron(long int prevLayerNeuronCount) {
-        connections = prevLayerNeuronCount;
+    neuron(long int connectionCountIn) {
+        //connections = connectionCount;
+        connectionCount = connectionCountIn;
+        if(connectionCount == 0){
+            throw std::domain_error("\nThere can't be 0 neurons in the previous layer!\n");
+        }
+        initConnections();
     }
     
-    long int connections;
+    long int connectionCount;
+    vector<double> connections;
+    
+private:
+    void initConnections(){
+        if (connections.empty() == true) {
+            for (int i = 0; i < connectionCount; i++) {
+                connections.push_back(rand() % 20 - 10);
+            }
+        }
+    }
 };
 
 struct layer {
@@ -31,48 +46,49 @@ struct layer {
     
     layer(long int prevLayerCount) {
         
-        if( prevLayerCount == 0 ){
+        if( prevLayerCount <= 0 ){
             throw std::domain_error("\nThere can't be 0 neurons in the previous layer!\n");
         }
         
         
         prevLayerNeuronCount = prevLayerCount;
         neuronCount = 100;
-        initRandomNeurons();
+        initNeurons();
     }
     
     
-    layer(long int x, long int prevLayerCount) {
+    layer(long int layerCountIn, long int prevLayerCount) {
         
-        if( x == 0 ){
+        if( layerCountIn <= 0 ){
             throw std::domain_error("\nA layer cannot contain 0 neurons!\n");
         }
         
-        if( prevLayerCount == 0 ){
+        if( prevLayerCount <= 0 ){
             throw std::domain_error("\nThere can't be 0 neurons in the previous layer!\n");
         }
         
         
         prevLayerNeuronCount = prevLayerCount;
-        neuronCount = x;
-        initRandomNeurons();
+        neuronCount = layerCountIn;
+        initNeurons();
     }
     
     
-    layer(vector<neuron> y, long int prevLayerCount) {
+    layer(vector<neuron> layerIn, long int prevLayerCount) {
         
-        if(y.empty()){
+        if(layerIn.empty()){
             throw std::domain_error("\nA layer cannot contain 0 neurons!\n");
         }
         
-        if( prevLayerCount == 0 ){
+        if( prevLayerCount <= 0 ){
             throw std::domain_error("\nThere can't be 0 neurons in the previous layer!\n");
         }
         
         
         prevLayerNeuronCount = prevLayerCount;
-        neuronCount = y.size();
-        neurons = y;
+        neuronCount = layerIn.size();
+        neurons = layerIn;
+        initNeurons();
     }
     
     long int neuronCount;
@@ -81,15 +97,22 @@ struct layer {
     
     
 private:
-    void initRandomNeurons() {
-        for(int c = 0; c < neuronCount; c++){
-            neurons.push_back(neuron(prevLayerNeuronCount));
+    void initNeurons() {
+        if(neurons.empty()){
+            for(int c = 0; c < neuronCount; c++){
+                neurons.push_back(neuron(prevLayerNeuronCount));
+            }
+        } else {
+            for (auto c = neurons.begin(); c != neurons.end(); ++c){
+                neurons.push_back(neuron(*c));
+            }
         }
 }
     
 };
 
 int main() {
+    
     string j;
     string k;
     string l;
@@ -99,7 +122,7 @@ int main() {
     std::ofstream rawData;
     cout << endl;
     rawData.open("../Settings:Storage/Training Dump.neuraw");
-    layer aaaaaaaaaaa(8000, 8000);
+    layer layer1(8000, 3000);
     for (int i = 0; i < 15; i++) {
 		switch (i) {
 			case 1:
@@ -122,8 +145,10 @@ int main() {
         
 	}
     
-    cout << aaaaaaaaaaa.neurons.begin() -> connections << endl;
     
-    usleep(s_to_u(3));
+    cout << layer1.neurons.at(1).connections.at(1) << endl;
+    
+    
+    usleep(s_to_u(5));
     return 0;
 }
