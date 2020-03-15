@@ -4,12 +4,14 @@
 #include <string>
 #include <unistd.h>
 #include <cmath>
+#include <random>
 #include "../Dependencies/time_unit_conversions.h"
 using std::cout;
 using std::endl;
 using std::string;
 using std::getline;
 using std::vector;
+
 
 
 struct neuron {
@@ -33,7 +35,8 @@ private:
     void initConnections(){
         if (connections.empty() == true) {
             for (int i = 0; i < connectionCount; i++) {
-                connections.push_back(rand() % 20 - 10);
+                double iterRand = rand();
+                connections.push_back(-10 + (long double)rand() / (RAND_MAX / 20.0));
             }
         }
     }
@@ -112,6 +115,9 @@ private:
 };
 
 int main() {
+    
+    int seed = time(0);
+    srand(seed);
     
     string j;
     string k;
