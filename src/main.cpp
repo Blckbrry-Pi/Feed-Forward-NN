@@ -36,7 +36,8 @@ private:
         if (connections.empty() == true) {
             for (int i = 0; i < connectionCount; i++) {
                 double iterRand = rand();
-                connections.push_back(-10 + (long double)rand() / (RAND_MAX / 20.0));
+                connections.push_back(-10 + (long double)rand() / (RAND_MAX / 20))
+                ;
             }
         }
     }
